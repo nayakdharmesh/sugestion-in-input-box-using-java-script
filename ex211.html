@@ -1,0 +1,25 @@
+<html>
+    <body>
+            <h4>serch name:-</h4><br>
+            <input type="text" onkeypress="check(this.value)">
+            <h4>suggesation:-</h4><br>
+            <div id="result"></div>
+
+        <script>
+           var people = ['dharmesh ', 'darshan', 'preet', 'vishal', 'nathalal','ram','amit','priya'];
+            function output(input) {
+            var reg = new RegExp(input.split('').join('\\w*').replace(/\W/, ""), 'i');
+            return people.filter(function(person) {
+                if (person.match(reg)) {
+                return person;
+                }
+            });
+            }
+
+            function check(val) {
+            var Result = output(val);
+            document.getElementById("result").innerHTML = Result;
+}
+        </script>
+    </body>
+</html>
